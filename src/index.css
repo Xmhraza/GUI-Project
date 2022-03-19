@@ -1,13 +1,229 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  background-size: 1000px 1000px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transition: 0.4 ease;
+}
+
+
+
+main {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 414px;
+  height: 736px;
+  text-align: center;
+  /*padding-top: 80px;*/
+  margin: 0 auto;
+}
+
+.search-box {
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.search-box .search-bar {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  appearance: none;
+  background: none;
+  
+  outline: none;
+  background-color: lightblue;
+  /*background-color: rgba(255, 255, 255, 0.5);*/
+  border-radius: 16px;
+  margin-top: -100px;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  
+  color: #313131;
+  font-size: 20px;
+
+  transition: 1s ease;
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.weather-details .location {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.weather-details .date {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  position: relative;
+  
+  margin: 15px auto;
+  border-radius: 16px;
+  padding: 15px 25px;
+  color: rgb(247, 242, 242);
+  font-size: 102px;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+}
+
+.weather-details {
+  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 1px 2px rgba(20, 20, 70, 0.5);
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: rgb(12, 101, 218);
+  border-radius: 16px;
+  padding: 50px;
+}
+
+.weather-details.warm {
+  background-color: rgb(131, 131, 62);
+}
+
+.weather-details.hot {
+  background-color: rgb(119, 62, 62);
+}
+
+.weather-details .wind {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 200;
+  margin-right: 65%;
+  margin-top: 12%;
+}
+
+
+.weather-details .pressure {
+  border-radius: 16px;
+  color: rgb(252, 252, 252);
+  font-size: 20px;
+  font-weight: 200;
+  margin-left: 70%;
+  margin-top: -7%;
+}
+
+
+.weather-details h1 {
+  color: rgb(252, 252, 252);
+  margin-top: -33%;
+  font-size: 18px;
+  margin-left: -65%;
+}
+
+.weather-details h2 {
+  color: rgb(252, 252, 252);
+  margin-top: -7%;
+  font-size: 18px;
+  margin-right: -70%;
+}
+
+.line {
+  border-left: 6px solid rgb(255, 255, 255);
+  height: 100px;
+  left: 50%;
+  margin-top: 25%;
+  margin-left: 50%;
+  top: 0;
+  
+}
+
+.button {
+  height: 35px;
+  width: 80px;
+  position: absolute;
+  left: 54%;
+ margin-top: -1.5%;
+ background-color: rgb(60, 11, 236);
+ border: 4px double #cccccc;
+ /*border: rgba(20, 20, 70, 0.5);*/
+ border-radius: 1px;
+ padding: 5px 15px;
+ cursor: pointer;
+ font-size: 17px;
+ text-align: center;
+}
+
+.button.warm {
+  background-color: rgb(158, 158, 42);
+}
+
+
+.button.hot {
+  background-color: red;
+}
+
+button:hover {
+  background: url('./assets/arrow.png') no-repeat 0 0;
+  background-position:center;
+  text-align: center;
+  border-color: rgb(255, 255, 255);
+  background-color: blue;
+  transition: 1s;
+  background-size: 40%;
+}
+
+button p {
+  color: white;
+}
+
+button:hover p {
+  display:none;
+}
+
+
+
+
+.weather-box .weather {
+  color: #FFF;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.color {
+  background-color: blue;
+}
+
+.color.warm {
+  background-color: yellow;
+}
+
+.color.hot {
+  background-color: red;
+}
+
+.search-bar:hover {
+
+  width: 130%;
+  transition: 0.5s;
+  margin-left: -15%;
+
 }
