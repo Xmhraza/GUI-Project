@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NewApp from './NewApp';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 
 
@@ -110,10 +109,6 @@ function App() {
     <div className="app">
 
 
-      <Routes>
-          <Route exact path = "/NewApp" element = {<NewApp/>}/>
-        </Routes>
-        
       
    
       
@@ -177,6 +172,9 @@ function App() {
  } else {
    return (
      <div>
+
+      {(typeof weather.main != "undefined") ? (
+      <main className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' }>
        <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'button hot' : 'button warm') : 'button' }  type="button" 
           onClick={checkTrue}><p>Today</p>
           </button> 
@@ -185,9 +183,14 @@ function App() {
           {weather.main.temp}
         </div>
         <div>
-        {new Date(weather1.hourly[0].dt*1000).getHours().toLocaleString()}
+        {new Date(weather1.hourly[0].dt*1000).getHours().toLocaleString()}:00
         </div>
+     
+      </main>
+      ) : ('')}
      </div>
+   
+   
    )
  };
 
