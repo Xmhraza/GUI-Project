@@ -171,6 +171,31 @@ main {
  text-align: center;
 }
 
+.secondButton {
+  height: 35px;
+  width: 80px;
+  position: absolute;
+  left: 45%;
+ margin-top: -1.5%;
+ background-color: rgb(60, 11, 236);
+ border: 4px double #cebdbd;
+ /*border: rgba(20, 20, 70, 0.5);*/
+ border-radius: 1px;
+ padding: 5px 15px;
+ cursor: pointer;
+ font-size: 17px;
+ text-align: center;
+}
+
+.secondButton.warm {
+  background-color: rgb(158, 158, 42);
+}
+
+
+.secondButton.hot {
+  background-color: red;
+}
+
 .button.warm {
   background-color: rgb(158, 158, 42);
 }
@@ -227,3 +252,64 @@ button:hover p {
   margin-left: -15%;
 
 }
+
+.data {
+  margin-left: 0%;
+}
+
+
+.tempMargin {
+  margin-top: 5%;
+  font-size: 20px;
+}
+
+.iconTime {
+  background-color: rgb(12, 101, 218);
+  margin-left: 5%;
+  margin-top: 4.5%;
+  height: 25%;
+  width: 30%;
+  border-color: black;
+  border-style: outset;
+  border-radius: 50%;
+  font-style: oblique;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  display: ruby;
+ 
+}
+
+.iconTime2 {
+  background-color: rgb(12, 101, 218);
+  margin-left: 65%;
+  margin-top: -26.5%;
+  height: 25%;
+  width: 30%;
+  border-color: black;
+  border-style: outset;
+  border-radius: 50%;
+  font-style: oblique;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  display: ruby;
+ 
+}
+
+
+.iconTime.warm {
+  background-color: rgb(131, 131, 62);
+}
+
+.iconTime.hot  {
+  background-color: rgb(119, 62, 62);
+}
+
+.iconTime2.warm {
+  background-color: rgb(131, 131, 62);
+}
+
+.iconTime2.hot  {
+  background-color: rgb(119, 62, 62);
+}
+
+
