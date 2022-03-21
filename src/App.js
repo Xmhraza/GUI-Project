@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import NewApp from './NewApp';
+import {Routes, Route, useNavigate } from 'react-router-dom';
+
+
 const api = {
   key: "b1d540951938a89881163ceef66dc44a",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -9,12 +13,24 @@ const api1 = {
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
+
+
 function App() {
+  
+
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
   const [query1, setQuery1] = useState('');
   const [weather1, setWeather1] = useState({});
+
+  const [check, SetCheck] = useState('');
+
+  let navigate = useNavigate();
+
+  
+
+  
 
   useEffect(() => {
     fetch(`${api.base}weather?q=${"London"}&units=metric&APPID=${api.key}`)
@@ -26,7 +42,7 @@ function App() {
         });
 
 
-    fetch(`${api1.base}onecall?lat=${"51.5085"}&lon=${"-0.1257"}&APPID=${api1.key}`)
+    fetch(`${api1.base}onecall?lat=${"51.5085"}&lon=${"-0.1257"}&units=metric&APPID=${api1.key}`)
         .then(res => res.json())
         .then(result => {
           setWeather1(result);
@@ -56,6 +72,18 @@ function App() {
     }
   }
 
+  
+  const checkFalse = e => {
+    SetCheck(true)
+    console.log("it happened");
+  }
+
+  const checkTrue = e => {
+    SetCheck(false)
+    console.log("it happened again");
+  }
+  
+
 
 
   const dateBuilder = (d) => {
@@ -70,15 +98,25 @@ function App() {
     return `${day} ${date} ${month} ${year}`
   }
 
+ 
+ if (check == false) {
   return (
 
     /*
-      
+      const [check, setCheckFalse] = useState('');
       
     */
 
-
     <div className="app">
+
+
+      <Routes>
+          <Route exact path = "/NewApp" element = {<NewApp/>}/>
+        </Routes>
+        
+      
+   
+      
       
       {(typeof weather.main != "undefined") ? (
       <main className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' }>
@@ -109,7 +147,8 @@ function App() {
             </div>
           </div>
 
-          <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'button hot' : 'button warm') : 'button' } type="button"><p>Today</p>
+          <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'button hot' : 'button warm') : 'button' }  type="button" 
+          onClick={checkFalse}><p>Today</p>
           </button> 
 
           <div >
@@ -134,7 +173,28 @@ function App() {
       </main>
     ) : ('')}
     </div>
-  );
+  )
+ } else {
+   return (
+     <div>
+       <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'button hot' : 'button warm') : 'button' }  type="button" 
+          onClick={checkTrue}><p>Today</p>
+          </button> 
+        <div>
+          {weather1.daily[0].temp.day}
+          {weather.main.temp}
+        </div>
+        <div>
+        {new Date(weather1.hourly[0].dt*1000).getHours().toLocaleString()}
+        </div>
+     </div>
+   )
+ };
+
+  
 }
+
+
+
 
 export default App;
