@@ -80,6 +80,13 @@ main {
   text-align: center;
 }
 
+.weather-box .weather {
+  color: #FFF;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
 .weather-box .temp {
   position: relative;
   
@@ -175,8 +182,7 @@ main {
   height: 35px;
   width: 80px;
   position: absolute;
-  left: 45%;
- margin-top: -1.5%;
+  left: 47%;
  background-color: rgb(60, 11, 236);
  border: 4px double #cebdbd;
  /*border: rgba(20, 20, 70, 0.5);*/
@@ -205,6 +211,16 @@ main {
   background-color: red;
 }
 
+.secondButton:hover {
+  width: 80px;
+  background: url('./assets/arrow2.png') no-repeat 0 0;
+  background-position:center;
+  text-align: center;
+  border-color: rgb(255, 255, 255);
+  background-size: 40%;
+  transition: 0s;
+}
+
 button:hover {
   background: url('./assets/arrow.png') no-repeat 0 0;
   background-position:center;
@@ -226,12 +242,7 @@ button:hover p {
 
 
 
-.weather-box .weather {
-  color: #FFF;
-  font-size: 48px;
-  font-weight: 700;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-}
+
 
 .color {
   background-color: blue;
@@ -312,4 +323,46 @@ button:hover p {
   background-color: rgb(119, 62, 62);
 }
 
+
+
+.card { /* used to style the boxes of the future days and their tempreatures*/
+  margin-top: 1em;
+  display: inline-block;
+  color: white;
+  background-color: rgba(182, 181, 181, 0.2);
+  border-radius: 16px;
+  padding: 5px;
+  color: #FFF;
+  font-weight: 900;
+  justify-content: space-between;
+  text-shadow: 1px 2px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+  margin-right: 15px;
+  
+}
+.scrolling-wrapper { /* allows the div container to become horizontal and gives it a scrolling effect*/
+  
+  width: 25em;
+  overflow-x: auto;
+  white-space: nowrap;
+
+}
+* { /* styles the scroll bar*/
+  scrollbar-width: thin;
+  scrollbar-color: blue ;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar { /* styles the scroll bar*/
+  width: 12px;
+}
+
+
+
+*::-webkit-scrollbar-thumb {/* styles the thumb of the scroll bar*/
+  background-color: rgb(172, 172, 189);
+  border-radius: 20px;
+ 
+}
 
