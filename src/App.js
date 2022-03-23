@@ -217,13 +217,13 @@ function App() {
   )
 
   /* if check is true */
-  /* {(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' } */
+  /*  */
  } else {
    return (
      <div >
 
       {(typeof weather.main != "undefined") ? (
-      <main className='main'>
+      <main className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' }>
 
        {/* button to change check to false therefore taking you back to the original page outlet */}
        <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'secondButton hot' : 'secondButton warm') : 'secondButton' }  type="button" 
