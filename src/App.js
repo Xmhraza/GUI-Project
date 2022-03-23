@@ -75,12 +75,10 @@ function App() {
   /* changes the value of check depending on what button is pressed */
   const checkFalse = e => {
     SetCheck(true)
-    console.log("it happened");
   }
 
   const checkTrue = e => {
     SetCheck(false)
-    console.log("it happened again");
   }
   
 
@@ -219,12 +217,13 @@ function App() {
   )
 
   /* if check is true */
+  /* {(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' } */
  } else {
    return (
-     <div>
+     <div >
 
       {(typeof weather.main != "undefined") ? (
-      <main className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'color hot' : 'color warm') : 'color' }>
+      <main className='main'>
 
        {/* button to change check to false therefore taking you back to the original page outlet */}
        <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'secondButton hot' : 'secondButton warm') : 'secondButton' }  type="button" 
