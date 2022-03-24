@@ -122,7 +122,7 @@ function App() {
   return (
 
     /* main div returned */
-    <div className="app">
+    <div>
 
 
       {/* checking whether the variables where the api returned object is stored are empty or not */}
@@ -164,6 +164,9 @@ function App() {
           onClick={checkFalse}><p>Today</p>
           </button> 
 
+          <p className="Tmax">HIGH : {Math.round(weather.main.temp_max)}°c</p>
+          <p className="Tmin"> LOW : {Math.round(weather.main.temp_min)}°c</p>
+
           {/* data for windspeed and atmospheric pressure */}
           <div >
             <p className="line">
@@ -186,29 +189,75 @@ function App() {
         </div>
 
         <div class="scrolling-wrapper"> {/*the purpose of this class is to create a horizontal scrolling effect that allows the user to view the tempreatures of the next 5 days*/} 
-            <div class="card">
-            <h2>{Math.round(weather1.daily[1].temp.day)}°c</h2> 
+        <div class="card">
+            <h2>{dayBuilder(new Date,1)}</h2>
+            <br></br>
+            <h3><u>Temperature:</u></h3>
+            <h4>{Math.round(weather1.daily[1].temp.day)}°c</h4> 
               <br></br>
-              <h2>{dayBuilder(new Date,1)}</h2> 
+              <h3><u>Wind Data:</u></h3>
+              <h4>Speed: {weather1.daily[1].wind_speed}m/s</h4>
+              <h4>Direction: {weather1.daily[1].wind_deg}°</h4>
+              <br></br>
+              <h3><u>Rain Data:</u></h3>
+              <h4>Probability of Rainfall: {weather1.daily[1].pop}%</h4>
             </div>
+
             <div class="card">
-              <h2>{Math.round(weather1.daily[2].temp.day)}°c</h2>
+            <h2>{dayBuilder(new Date,2)}</h2>
+            <br></br>
+            <h3><u>Temperature:</u></h3>
+            <h4>{Math.round(weather1.daily[2].temp.day)}°c</h4> 
               <br></br>
-              <h2>{dayBuilder(new Date,2)}</h2>
+              <h3><u>Wind Data:</u></h3>
+              <h4>Speed: {weather1.daily[2].wind_speed}m/s</h4>
+              <h4>Direction: {weather1.daily[2].wind_deg}°</h4>
+              <br></br>
+              <h3><u>Rain Data:</u></h3>
+              <h4>Probability of Rainfall: {weather1.daily[2].pop}%</h4>
             </div>
+
             <div class="card">
-              <h2>{Math.round(weather1.daily[3].temp.day)}°c</h2>
+            <h2>{dayBuilder(new Date,3)}</h2>
+            <br></br>
+            <h3><u>Temperature:</u></h3>
+            <h4>{Math.round(weather1.daily[3].temp.day)}°c</h4> 
               <br></br>
-              <h2>{dayBuilder(new Date,3)}</h2>
-            </div><div class="card">
-              <h2>{Math.round(weather1.daily[4].temp.day)}°c</h2>
+              <h3><u>Wind Data:</u></h3>
+              <h4>Speed: {weather1.daily[3].wind_speed}m/s</h4>
+              <h4>Direction: {weather1.daily[3].wind_deg}°</h4>
               <br></br>
-              <h2>{dayBuilder(new Date,4)}</h2>
-            </div><div class="card">
-              <h2>{Math.round(weather1.daily[5].temp.day)}°c</h2>
+              <h3><u>Rain Data:</u></h3>
+              <h4>Probability of Rainfall: {weather1.daily[3].pop}%</h4>
+            </div> 
+            <div class="card">
+            <h2>{dayBuilder(new Date,4)}</h2>
+            <br></br>
+            <h3><u>Temperature:</u></h3>
+            <h4>{Math.round(weather1.daily[4].temp.day)}°c</h4> 
               <br></br>
-              <h2>{dayBuilder(new Date,5)}</h2>
+              <h3><u>Wind Data:</u></h3>
+              <h4>Speed: {weather1.daily[4].wind_speed}m/s</h4>
+              <h4>Direction: {weather1.daily[4].wind_deg}°</h4>
+              <br></br>
+              <h3><u>Rain Data:</u></h3>
+              <h4>Probability of Rainfall: {weather1.daily[4].pop}%</h4>
             </div>
+
+            <div class="card">
+            <h2>{dayBuilder(new Date,5)}</h2>
+            <br></br>
+            <h3><u>Temperature:</u></h3>
+            <h4>{Math.round(weather1.daily[5].temp.day)}°c</h4> 
+              <br></br>
+              <h3><u>Wind Data:</u></h3>
+              <h4>Speed: {weather1.daily[5].wind_speed}m/s</h4>
+              <h4>Direction: {weather1.daily[5].wind_deg}°</h4>
+              <br></br>
+              <h3><u>Rain Data:</u></h3>
+              <h4>Probability of Rainfall: {weather1.daily[5].pop}%</h4>
+            </div>
+
 
         </div>
       </main>
@@ -229,7 +278,6 @@ function App() {
        <button className={(weather.main.temp > 12) ? ((weather.main.temp > 24) ? 'secondButton hot' : 'secondButton warm') : 'secondButton' }  type="button" 
           onClick={checkTrue}><p>Back</p>
           </button>
-
 
        {/* The 12 piece of div components are used for showing data (temp, hour and icon) of the next 24 hours (one of every 2 hours)
         */}
@@ -305,7 +353,6 @@ function App() {
           <img id="wicon" className='iconMargin' src={"http://openweathermap.org/img/wn/"+ weather1.hourly[11].weather[0].icon + ".png"} alt="Weather icon"/>
         </div>
       
-     
       </main>
       ) : ('')}
      </div>
