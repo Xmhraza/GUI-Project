@@ -56,18 +56,21 @@ function App() {
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then(res => res.json())
         .then(result => {
-          setWeather(result);
-          setQuery('');
+          if (result.main != undefined) {
+            setWeather(result);
+           setQuery('');
           console.log(result);
       
       /* this uses the results of the first api (for latitude and longitude) */    
-      fetch(`${api1.base}onecall?lat=${result.coord.lat}&lon=${result.coord.lon}&units=metric&APPID=${api1.key}`)
-        .then(res => res.json())
-        .then(result => {
-        setWeather1(result);
-        console.log(result);
-        });
+         fetch(`${api1.base}onecall?lat=${result.coord.lat}&lon=${result.coord.lon}&units=metric&APPID=${api1.key}`)
+          .then(res => res.json())
+          .then(result => {
+          setWeather1(result);
+          console.log(result);
+          });
          
+          }
+          
         });
     }
   }
